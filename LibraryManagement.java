@@ -24,13 +24,6 @@ String ddate;
 }  
 }  
 
-
-
-
-
-
-
-
 class Member{  
   int rollno;  
   String name;  
@@ -50,16 +43,7 @@ class Member{
 
 class Lib1{  
    void add(HashMap<Integer,Member> al){  
-  //Creating user-defined class objects  
- /* Member s1=new Member(101,"Sonoo",23,"10/10/1997","D.NO:7-37","BVRM");  
-  Member s2=new Member(102,"Ravi",21,"17/10/1997","D.NO:7-33","BVRM");  
-  Member s2=new Member(103,"Hanumat",25,"20/10/1997","D.NO:7-31","BVRM");  
-  //creating arraylist  
-  
-  al.add(s1);//adding Student class object  
-  al.add(s2);  
-  al.add(s3);  */
-  //Getting Iterator  
+   
   int id;  
   String name;  
   int age;  
@@ -82,9 +66,15 @@ class Lib1{
 
 	System.out.println("enter city");
 	city=s.nextLine();
-
+       if(al.containsKey(id))
+       {
+        System.out.println("Member with id "+id+" already exists");
+        }
+      else
+     {
 	Member b4=new Member(id,name,age,dob,addr,city); 
 	al.put(id,b4);
+     }
   
  }
  void addbooks(HashMap list) {  
@@ -93,15 +83,8 @@ class Lib1{
     //Creating Books  
 	int id,quantity;
 	String name,author,publisher;
-   /* Book b1=new Book(101,"Let us C","Yashwant Kanetkar","BPB",8);  
-    Book b2=new Book(102,"Data Communications & Networking","Forouzan","Mc Graw Hill",4);  
-    Book b3=new Book(103,"Operating System","Galvin","Wiley",6);  
-    //Adding Books to list  
-    list.add(b1);  
-    list.add(b2);  
-    list.add(b3);  */
+   
 	Scanner s=new Scanner(System.in);
-	
 	System.out.println("enter id");
 	id=s.nextInt();
 	System.out.println("enter name");
@@ -113,9 +96,15 @@ class Lib1{
 	publisher=s.nextLine();
 	System.out.println("enter quantity");
 	quantity=s.nextInt();
-	
+        if(list.containsKey(id))
+       {
+        System.out.println("Book with id "+id+" already exists");
+        }
+      else
+     {
 	Book b4=new Book(id,name,author,publisher,quantity); 
 	list.put(id,b4);
+      }
    
 }
 void Issue(HashMap<Integer,Book> map,HashMap<Integer,Integer> barrows,HashMap<Integer,Queue> qlist)
@@ -175,7 +164,7 @@ barrows.remove(mid);
 		int id=s.nextInt();
 		if(!map.containsKey(id))
 		{
-			System.out.println("the book with id"+id+"is not available in the library");
+			System.out.println("the book with id "+id+" is not available in the library");
 		}
 		else{
 			b=map.remove(id); 
@@ -211,7 +200,7 @@ for(Map.Entry<Integer, Book> entry:map.entrySet()){
         int key=entry.getKey();  
         Book b=entry.getValue();  
         System.out.println(key+" Details:");  
-        System.out.println(b.id+" "+b.name+" "+b.name+" "+b.author+" "+b.publisher+" "+b.quantity);   
+        System.out.println(b.id+" "+b.name+" "+b.author+" "+b.publisher+" "+b.quantity);   
     }    
 
 }
@@ -235,7 +224,7 @@ void objectabook(HashMap<Integer,Book> map,HashMap<Integer,Integer> obook)
 		int id=s.nextInt();
 		if(!map.containsKey(id))
 		{
-			System.out.println("the book with id"+id+"is not available in the library");
+			System.out.println("the book with id "+id+"is not available in the library");
 		}
 		else{
              obook.put(id,0);
@@ -271,14 +260,6 @@ for(Map.Entry<Integer, Queue> entry:a.entrySet()){
    
 }  
 
-
-
-
-
-
-
-
- 
 public class LibraryManagement{  
  public static void main(String args[]){  
   //Creating user-defined class objects 
@@ -290,7 +271,7 @@ public class LibraryManagement{
     HashMap<Integer,Integer> barrows=new HashMap<Integer,Integer>();
     HashMap<Integer,Queue>  qlist=new     HashMap<Integer,Queue>();
   int t;
-  System.out.println("enter \n 1 to add books \n 2 to add members \n 3 issue a book  \n 4 remove a member \n 5 to show books \n 6 to show members \n 7 ifreturned \n 8 for bookenquiry\n 9 to object a book \n 10 to show objected books \n\n 11 for borrowed books\n 12 for waiting list for books\n -1 to quit -1 to quit");
+  System.out.println("enter \n 1 to add books \n 2 to add members \n 3 issue a book  \n 4 remove a member \n 5 to show books \n 6 to show members \n 7 ifreturned \n 8 for bookenquiry\n 9 to object a book \n 10 to show objected books \n  11 for barrows \n 12 for quelist\n -1 to quit");
   t=s.nextInt();
   while(t!=-1)
   {
@@ -347,7 +328,7 @@ if(t==12)
 obj.print(qlist);
 }		  
        
-System.out.println("enter \n 1 to add books \n 2 to add members \n 3 issue a book  \n 4 remove a member \n 5 to show books \n 6 to show members \n 7 if returned \n 8 for bookenquiry \n 9 to object a book \n 10 to show objected books\n 11 for borrowed books\n 12 for waiting list for books \n -1 to quit ");
+System.out.println("enter \n 1 to add books \n 2 to add members \n 3 issue a book  \n 4 remove a member \n 5 to show books \n 6 to show members \n 7 if returned \n8 for bookenquiry\n 9 to object a book \n 10 to show objected books \n  11 for barrows \n 12 for quelist -1 to quit ");
 	  
 t=s.nextInt();
   }

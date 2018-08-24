@@ -53,11 +53,13 @@ class Lib1{
   Scanner s=new Scanner(System.in);
 	System.out.println("enter id");
 	id=s.nextInt();
+	   s.nextLine();
 	System.out.println("enter name");
 	name=s.nextLine();
- s.nextLine();
+ 
 	System.out.println("enter age");
 	age=s.nextInt();
+	   s.nextLine();
 	System.out.println("enter date of birth");
 	dob=s.nextLine();
  s.nextLine();
@@ -87,9 +89,10 @@ class Lib1{
 	Scanner s=new Scanner(System.in);
 	System.out.println("enter id");
 	id=s.nextInt();
+	 s.nextLine();
 	System.out.println("enter name");
 	name=s.nextLine();
-         s.nextLine();
+         
 	System.out.println("enter author");
 	author=s.nextLine();
 	System.out.println("enter publisher");
